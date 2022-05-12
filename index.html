@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>多级选择</title>
+		<!-- 设置 viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+		<!-- IE -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- 兼容国产浏览器的高速模式 -->
+		<meta name="renderer" content="webkit">
+		<meta name="Author" content="fans_m@163.com" />
+		<meta name="Keywords" content="" />
+		<meta name="Description" content="" />
+		<link rel="stylesheet" href="css/mul-select.css">
+		<style type="text/css">
+			.box {
+				width: 500px;
+				margin:20% auto;
+			}
+			.box span {
+				font-size: 14px;
+			}
+			.input-box {
+				width: 90%;
+				position: relative;
+				display: inline-block;
+			}
+			.input-box input {
+				width: 100%;
+				height: 32px;
+				border:1px solid #ddd;
+				outline-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+			<span>选项：</span>
+			<div class="input-box" style="position: relative;">
+				<input type="text" readonly class="mul-input" id="mul-input" >
+				<!-- <div class="mul-select">
+					<div class="mul-select-wrap">
+						<div class="mul-select-tab">
+							<span class="active">一级</span>
+							<span>二级</span>
+							<span>三级</span>
+							<span>四级</span>
+							<span>五级</span>
+						</div>
+						<div class="mul-select-content">
+							<div class="mul-select-html">
+								<ul class="mul-select-ul">
+									<li class="active">
+										<span>选项1</span>
+									</li>
+									<li>
+										<span>选项2</span>
+									</li>
+									<li>
+										<span>选项3</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<button id="gt" type="button" style="width: 100px;display: block;margin: 0 auto;line-height: 35px;cursor: pointer;">获取值</button>
+		
+		<script src="js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mul-select.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		    // 初始化
+			var vl = {
+    "oneLevel": [
+        {
+            "value": "地球1",
+            "twoLevel": [
+                {
+                    "value": "中国1-21",
+                    "threeLevel": [
+                        {
+                            "value": "湖北省1-21-31",
+                            "fourLevel": [
+                                {
+                                    "value": "武汉市1-21-31-41",
+                                    "fiveLevel": [
+                                        {
+                                            "value": "硚口区1-21-31-41-51"
+                                        },
+                                        {
+                                            "value": "江岸区1-21-31-41-52"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "value": "咸宁市1-21-31-42",
+                                    "fiveLevel": [
+                                        {
+                                            "value": "区1-21-31-42-51"
+                                        },
+                                        {
+                                            "value": "区1-21-31-42-52"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+						{
+						    "value": "湖北省1-21-32",
+						    "fourLevel": [
+						        {
+						            "value": "武汉市1-21-32-41",
+						            "fiveLevel": [
+						                {
+						                    "value": "硚口区1-21-32-41-51"
+						                },
+						                {
+						                    "value": "江岸区1-21-32-41-52"
+						                }
+						            ]
+						        },
+						        {
+						            "value": "咸宁市1-21-32-42",
+						            "fiveLevel": [
+						                {
+						                    "value": "区1-21-32-42-51"
+						                },
+						                {
+						                    "value": "区1-21-32-42-52"
+						                }
+						            ]
+						        }
+						    ]
+						}
+                    ]
+                },
+				{
+				    "value": "中国1-22",
+				    "threeLevel": [
+				        {
+				            "value": "湖北省1-22-31",
+				            "fourLevel": [
+				                {
+				                    "value": "武汉市1-22-31-41",
+				                    "fiveLevel": [
+				                        {
+				                            "value": "硚口区1-22-31-41-51"
+				                        },
+				                        {
+				                            "value": "江岸区1-22-31-41-52"
+				                        }
+				                    ]
+				                },
+				                {
+				                    "value": "咸宁市1-22-31-42",
+				                    "fiveLevel": [
+				                        {
+				                            "value": "区1-22-31-42-51"
+				                        },
+				                        {
+				                            "value": "区1-22-31-42-52"
+				                        }
+				                    ]
+				                }
+				            ]
+				        },
+						{
+						    "value": "湖北省1-22-32",
+						    "fourLevel": [
+						        {
+						            "value": "武汉市1-22-32-41",
+						            "fiveLevel": [
+						                {
+						                    "value": "硚口区1-22-32-41-51"
+						                },
+						                {
+						                    "value": "江岸区1-22-32-41-52"
+						                }
+						            ]
+						        },
+						        {
+						            "value": "咸宁市1-22-32-42",
+						            "fiveLevel": [
+						                {
+						                    "value": "区1-22-32-42-51"
+						                },
+						                {
+						                    "value": "区1-22-32-42-52"
+						                }
+						            ]
+						        }
+						    ]
+						}
+				    ]
+				}
+            ]
+        },
+		{
+		    "value": "地球2",
+		  //   "twoLevel": [
+		  //       {
+		  //           "value": "中国2-21",
+		  //           "threeLevel": [
+		  //               {
+		  //                   "value": "湖北省2-21-31",
+		  //                   "fourLevel": [
+		  //                       {
+		  //                           "value": "武汉市2-21-31-41",
+		  //                           "fiveLevel": [
+		  //                               {
+		  //                                   "value": "硚口区2-21-31-41-51"
+		  //                               },
+		  //                               {
+		  //                                   "value": "江岸区2-21-31-41-52"
+		  //                               }
+		  //                           ]
+		  //                       },
+		  //                       {
+		  //                           "value": "咸宁市2-21-31-42",
+		  //                           "fiveLevel": [
+		  //                               {
+		  //                                   "value": "区2-21-31-42-51"
+		  //                               },
+		  //                               {
+		  //                                   "value": "区2-21-31-42-52"
+		  //                               }
+		  //                           ]
+		  //                       }
+		  //                   ]
+		  //               },
+				// 		{
+				// 		    "value": "湖北省2-21-32",
+				// 		    "fourLevel": [
+				// 		        {
+				// 		            "value": "武汉市2-21-32-41",
+				// 		            "fiveLevel": [
+				// 		                {
+				// 		                    "value": "硚口区2-21-32-41-51"
+				// 		                },
+				// 		                {
+				// 		                    "value": "江岸区2-21-32-41-52"
+				// 		                }
+				// 		            ]
+				// 		        },
+				// 		        {
+				// 		            "value": "咸宁市2-21-32-42",
+				// 		            "fiveLevel": [
+				// 		                {
+				// 		                    "value": "区2-21-32-42-51"
+				// 		                },
+				// 		                {
+				// 		                    "value": "区2-21-32-42-52"
+				// 		                }
+				// 		            ]
+				// 		        }
+				// 		    ]
+				// 		}
+		  //           ]
+		  //       },
+				// {
+				//     "value": "中国2-22",
+				//     "threeLevel": [
+				//         {
+				//             "value": "湖北省2-22-31",
+				//             "fourLevel": [
+				//                 {
+				//                     "value": "武汉市2-22-31-41",
+				//                     "fiveLevel": [
+				//                         {
+				//                             "value": "硚口区2-22-31-41-51"
+				//                         },
+				//                         {
+				//                             "value": "江岸区2-22-31-41-52"
+				//                         }
+				//                     ]
+				//                 },
+				//                 {
+				//                     "value": "咸宁市2-22-31-42",
+				//                     "fiveLevel": [
+				//                         {
+				//                             "value": "区2-22-31-42-51"
+				//                         },
+				//                         {
+				//                             "value": "区2-22-31-42-52"
+				//                         }
+				//                     ]
+				//                 }
+				//             ]
+				//         },
+				// 		{
+				// 		    "value": "湖北省2-22-32",
+				// 		    "fourLevel": [
+				// 		        {
+				// 		            "value": "武汉市2-22-32-41",
+				// 		            "fiveLevel": [
+				// 		                {
+				// 		                    "value": "硚口区2-22-32-41-51"
+				// 		                },
+				// 		                {
+				// 		                    "value": "江岸区2-22-32-41-52"
+				// 		                }
+				// 		            ]
+				// 		        },
+				// 		        {
+				// 		            "value": "咸宁市2-22-32-42",
+				// 		            "fiveLevel": [
+				// 		                {
+				// 		                    "value": "区2-22-32-42-51"
+				// 		                },
+				// 		                {
+				// 		                    "value": "区2-22-32-42-52"
+				// 		                }
+				// 		            ]
+				// 		        }
+				// 		    ]
+				// 		}
+				//     ]
+				// }
+		  //   ]
+		}
+		
+    ]
+}
+			mulClick('mul-input',['一级','二级','三级','四级','五级'],vl)
+			
+			$("#gt").click(function(){
+				alert($("#mul-input").val())
+			})
+		</script>
+	</body>
+</html>
+ 
